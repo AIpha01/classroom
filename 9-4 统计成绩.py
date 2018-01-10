@@ -1,6 +1,6 @@
 # coding: gbk
 
-with open('report.txt','r',encoding='gbk') as f:     #¶ÁÈ¡³É¼¨
+with open('report.txt','r',encoding='gbk') as f:     #è¯»å–æˆç»©
     lines = f.readlines()
     list = []
     for line in lines:
@@ -11,39 +11,39 @@ with open('report.txt','r',encoding='gbk') as f:     #¶ÁÈ¡³É¼¨
         avg = 0
         for m in score[1:]:
             m = int(m)
-            sum += int(m)     #³É¼¨×Ü·Ö
-            avg = round(sum/(len(score)-1),2)     #Æ½¾ù·Ö
+            sum += int(m)     #æˆç»©æ€»åˆ†
+            avg = round(sum/(len(score)-1),2)     #å¹³å‡åˆ†
         #print('Sum:',sum)
         #print('Avg:',avg)
         score.append(sum)
         score.append(avg)
         list.append(score)
-    list.sort(key=lambda x:x[-2],reverse=True)     #³É¼¨ÅÅÃû
+    list.sort(key=lambda x:x[-2],reverse=True)     #æˆç»©æ’å
     #print(list)
 
-    each_avg = []     #Ã¿¿ÆÆ½¾ù·Ö»ã×Ü
+    each_avg = []     #æ¯ç§‘å¹³å‡åˆ†æ±‡æ€»
     for x in range(1,12):
         sub_sum = 0
         for y in list:
             sub_sum += int(y[x])
             sub_avg = round(sub_sum/len(list),2)
         each_avg.append(sub_avg)
-    each_avg.insert(0,'Æ½¾ù')
+    each_avg.insert(0,'å¹³å‡')
     list.insert(0, each_avg)
     #print(list)
 
     for x in list:
         for y in x[1:10]:
             if int(y) < 60:
-                 x[x.index(y)] = '²»¼°¸ñ'       #Ìæ»»²»¼°¸ñ·ÖÊı
+                 x[x.index(y)] = 'ä¸åŠæ ¼'       #æ›¿æ¢ä¸åŠæ ¼åˆ†æ•°
     #print(list)
                  
-    #Ìí¼Ó±êÌâ
-    title = ['Ãû´Î','ĞÕÃû','ÓïÎÄ', 'ÊıÑ§','Ó¢Óï','ÎïÀí','»¯Ñ§','ÉúÎï','ÕşÖÎ','ÀúÊ·','µØÀí','×Ü·Ö','Æ½¾ù·Ö']
+    #æ·»åŠ æ ‡é¢˜
+    title = ['åæ¬¡','å§“å','è¯­æ–‡', 'æ•°å­¦','è‹±è¯­','ç‰©ç†','åŒ–å­¦','ç”Ÿç‰©','æ”¿æ²»','å†å²','åœ°ç†','æ€»åˆ†','å¹³å‡åˆ†']
     list.insert(0, title)    
     #print(list)
 
-r = 0     #Ìí¼ÓÃû´Î
+r = 0     #æ·»åŠ åæ¬¡
 for x in list[1:]:
     x.insert(0, r)
     x.append('\n')
@@ -54,8 +54,8 @@ with open('new_report.txt', 'w', encoding='gbk') as f:
 	for line in list:
 		for index in range(len(line)):
 			line[index] = str(line[index])
-		text = '  '.join(line) + '\n'
-		f.writelines(text)
+		content = '  '.join(line) + '\n'
+		f.writelines(content)
     
 
     
