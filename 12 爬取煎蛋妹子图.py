@@ -46,7 +46,7 @@ if __name__ == '__main__':
     store_path(path)
 
     for i in range(int(Initial_page),int(Final_page)+1):
-        req = get_image("http://jandan.net/ooxx/page-%d#comments" % i)
+        req = get_image(" https://www.qiushibaike.com/imgrank/page-%d#comments" % i)
         threading._start_new_thread(save_images, (req, path))
     input('press Enter to exit...\n')
 
